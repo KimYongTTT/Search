@@ -57,5 +57,14 @@ subprojects{
 	}
 }
 
+project(':module-api') {
+	dependencies {
+		implementation(project(':module-data'))
+	}
+}
 
-
+project(':module-batch') {
+	dependencies {
+		implementation(project(':module-data'))
+	}
+}

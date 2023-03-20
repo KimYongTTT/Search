@@ -12,7 +12,7 @@ import lombok.experimental.SuperBuilder;
 public class BasePagingResponse<T> extends BaseResponse<T> {
     private PagingMetaVO paging;
 
-    public static BaseResponse successPagingResponse(Object data, PagingMetaVO paging) {
+    public static BasePagingResponse successPagingResponse(Object data, PagingMetaVO paging) {
         return BasePagingResponse.builder()
                 .isSuccess(true)
                 .message("")

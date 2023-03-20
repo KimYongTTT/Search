@@ -14,7 +14,7 @@ public class ResponseUtility {
         return new ResponseEntity<>(BaseResponse.successResponse(data), HttpStatus.OK);
     }
 
-    public ResponseEntity<BaseResponse> createPagingGetSuccessResponse(
+    public ResponseEntity<BasePagingResponse> createPagingGetSuccessResponse(
             Object data, PagingMetaVO paging) {
         return new ResponseEntity<>(
                 BasePagingResponse.successPagingResponse(data, paging), HttpStatus.OK);
