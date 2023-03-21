@@ -1,6 +1,8 @@
 package com.example.search.data.entity;
 
 import javax.persistence.*;
+
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -18,4 +20,14 @@ public class SearchWord {
 
     @Column(name = "search_count")
     private Long searchCount;
+
+    @Builder
+    public SearchWord(String keyword, Long searchCount) {
+        this.keyword = keyword;
+        this.searchCount = searchCount;
+    }
+    
+    public static SearchWord newWord(String keyword) {
+        return SearchWord.builder().keyword(keyword).searchCount(1L).build();
+    }
 }

@@ -1,13 +1,12 @@
 package com.example.search.api.model;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-@Getter
-@NoArgsConstructor
-@ToString
+@Data
 @SuperBuilder
 public class BaseResponse<T> {
     private Boolean isSuccess;

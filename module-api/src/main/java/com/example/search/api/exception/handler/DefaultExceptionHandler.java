@@ -29,11 +29,6 @@ public class DefaultExceptionHandler {
                 message.add(err.getDefaultMessage());
 
             return ResponseUtility.createFailResponse(message.toString(), HttpStatus.BAD_REQUEST);
-        } else if (exception instanceof MissingServletRequestParameterException) {
-            MissingServletRequestParameterException ex =
-                    (MissingServletRequestParameterException) exception;
-            return ResponseUtility.createFailResponse(
-                    ex.getParameterName(), HttpStatus.BAD_REQUEST);
         } else if (exception instanceof BindException) {
             BindException ex = (BindException) exception;
             BindingResult bindingResult = ex.getBindingResult();

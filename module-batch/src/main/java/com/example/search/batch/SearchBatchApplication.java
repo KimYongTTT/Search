@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-@SpringBootApplication(scanBasePackages = "com.example.search.data")
+@SpringBootApplication
 @EnableScheduling
 public class SearchBatchApplication {
     public static void main(String[] args) {

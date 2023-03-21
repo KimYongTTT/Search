@@ -8,7 +8,6 @@ import lombok.*;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
-@ToString
 public class NaverBlogSearchResponseDTO {
     private String lastBuildDate;
     private Integer total;

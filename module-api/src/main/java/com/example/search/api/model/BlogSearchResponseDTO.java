@@ -2,14 +2,10 @@ package com.example.search.api.model;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
 
-@Getter
-@ToString
-@AllArgsConstructor
+import lombok.*;
+
+@Data
 @Builder
 public class BlogSearchResponseDTO {
     private String title;

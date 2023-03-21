@@ -4,13 +4,15 @@ import com.example.search.api.constants.SearchConstants;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import lombok.Data;
 import lombok.ToString;
 
 @Data
-@ToString
 public class SearchOptions {
     @NotBlank(message = "query parameter is required")
+    @Size(min = 1, max = 30, message = "query parameter's length must be between 1 and 30")
     private String query;
 
     private SearchConstants.SortCondition sort = SearchConstants.SortCondition.ACCURACY;

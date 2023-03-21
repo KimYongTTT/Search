@@ -1,14 +1,10 @@
 package com.example.search.api.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
-@Getter
-@NoArgsConstructor
-@ToString
+@Data
 @SuperBuilder
 public class BasePagingResponse<T> extends BaseResponse<T> {
-    private PagingMetaVO paging;
+    private PagingMetadata paging;
 }

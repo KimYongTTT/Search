@@ -2,7 +2,7 @@ package com.example.search.api.utility;
 
 import com.example.search.api.model.BasePagingResponse;
 import com.example.search.api.model.BaseResponse;
-import com.example.search.api.model.PagingMetaVO;
+import com.example.search.api.model.PagingMetadata;
 import lombok.experimental.UtilityClass;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ public class ResponseUtility {
     }
 
     public static <T> ResponseEntity<BasePagingResponse<T>> createPagingGetSuccessResponse(
-            T data, PagingMetaVO paging) {
+            T data, PagingMetadata paging) {
         return new ResponseEntity<>(successPagingResponse(data, paging), HttpStatus.OK);
     }
 
@@ -32,7 +32,7 @@ public class ResponseUtility {
         return BaseResponse.builder().isSuccess(false).message(message).build();
     }
 
-    public static <T> BasePagingResponse<T> successPagingResponse(T data, PagingMetaVO paging) {
+    public static <T> BasePagingResponse<T> successPagingResponse(T data, PagingMetadata paging) {
         return BasePagingResponse.<T>builder()
                 .isSuccess(true)
                 .message("")
