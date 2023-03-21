@@ -1,11 +1,10 @@
 package com.example.search.data.entity;
 
+import java.time.OffsetDateTime;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-
-import javax.persistence.*;
-import java.time.OffsetDateTime;
 
 @Entity
 @Getter

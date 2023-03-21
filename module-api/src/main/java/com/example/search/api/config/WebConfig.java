@@ -13,7 +13,8 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addConverter(new StringToSortConditionConverter());
     }
 
-    class StringToSortConditionConverter implements Converter<String, SearchConstants.SortCondition> {
+    class StringToSortConditionConverter
+            implements Converter<String, SearchConstants.SortCondition> {
         @Override
         public SearchConstants.SortCondition convert(String source) {
             return SearchConstants.SortCondition.valueOf(source.toUpperCase());

@@ -1,7 +1,7 @@
 package com.example.search.api.service;
 
-import com.example.search.api.model.*;
 import com.example.search.api.exception.BusinessException;
+import com.example.search.api.model.*;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;

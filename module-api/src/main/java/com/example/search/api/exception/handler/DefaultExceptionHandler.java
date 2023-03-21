@@ -3,7 +3,6 @@ package com.example.search.api.exception.handler;
 import com.example.search.api.exception.BusinessException;
 import com.example.search.api.model.BaseResponse;
 import com.example.search.api.utility.ResponseUtility;
-
 import java.util.StringJoiner;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

@@ -10,5 +10,4 @@ public class SearchBatchApplication {
     public static void main(String[] args) {
         SpringApplication.run(SearchBatchApplication.class, args);
     }
-
 }

@@ -10,17 +10,34 @@ import org.springframework.http.ResponseEntity;
 @UtilityClass
 public class ResponseUtility {
 
-    public ResponseEntity<BaseResponse> createGetSuccessResponse(Object data) {
-        return new ResponseEntity<>(BaseResponse.successResponse(data), HttpStatus.OK);
+    public static <T> ResponseEntity<BaseResponse<T>> createGetSuccessResponse(T data) {
+        return new ResponseEntity<>(successResponse(data), HttpStatus.OK);
     }
 
-    public ResponseEntity<BasePagingResponse> createPagingGetSuccessResponse(
-            Object data, PagingMetaVO paging) {
-        return new ResponseEntity<>(
-                BasePagingResponse.successPagingResponse(data, paging), HttpStatus.OK);
+    public static <T> ResponseEntity<BasePagingResponse<T>> createPagingGetSuccessResponse(
+            T data, PagingMetaVO paging) {
+        return new ResponseEntity<>(successPagingResponse(data, paging), HttpStatus.OK);
     }
 
-    public ResponseEntity<BaseResponse> createFailResponse(String message, HttpStatus httpStatus) {
-        return new ResponseEntity<>(BaseResponse.failResponse(message), httpStatus);
+    public static ResponseEntity<BaseResponse> createFailResponse(
+            String message, HttpStatus httpStatus) {
+        return new ResponseEntity<>(failResponse(message), httpStatus);
+    }
+
+    public static <T> BaseResponse<T> successResponse(T data) {
+        return BaseResponse.<T>builder().isSuccess(true).message("").data(data).build();
+    }
+
+    public static BaseResponse failResponse(String message) {
+        return BaseResponse.builder().isSuccess(false).message(message).build();
+    }
+
+    public static <T> BasePagingResponse<T> successPagingResponse(T data, PagingMetaVO paging) {
+        return BasePagingResponse.<T>builder()
+                .isSuccess(true)
+                .message("")
+                .data(data)
+                .paging(paging)
+                .build();
     }
 }

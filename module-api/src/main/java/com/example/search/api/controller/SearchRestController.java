@@ -4,7 +4,7 @@ import com.example.search.api.model.*;
 import com.example.search.api.service.BlogSearchService;
 import com.example.search.api.utility.ResponseUtility;
 import com.example.search.data.service.SearchWordService;
-
+import java.util.List;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +22,8 @@ public class SearchRestController {
     private final SearchWordService searchWordService;
 
     @GetMapping(path = "/v1/search/blog")
-    public ResponseEntity<BasePagingResponse> searchBlogs(@Valid SearchOptions searchOptions) {
+    public ResponseEntity<BasePagingResponse<List<BlogSearchResponseDTO>>> searchBlogs(
+            @Valid SearchOptions searchOptions) {
         searchOptions.setQuery(searchOptions.getQuery().trim());
         searchWordService.saveSearchWord(searchOptions.getQuery());
         PagingDataVO<BlogSearchResponseDTO> res = blogSearchService.searchByKeyword(searchOptions);
@@ -31,7 +32,7 @@ public class SearchRestController {
     }
 
     @GetMapping(path = "/v1/search/words")
-    public ResponseEntity<BaseResponse> getTop10SearchWords() {
+    public ResponseEntity<BaseResponse<Object>> getTop10SearchWords() {
         return ResponseUtility.createGetSuccessResponse(null);
     }
 }

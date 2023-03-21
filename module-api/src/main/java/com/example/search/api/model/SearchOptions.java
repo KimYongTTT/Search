@@ -1,7 +1,6 @@
 package com.example.search.api.model;
 
 import com.example.search.api.constants.SearchConstants;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
