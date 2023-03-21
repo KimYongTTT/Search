@@ -1,7 +1,6 @@
 package com.example.search.data.entity;
 
 import javax.persistence.*;
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +25,7 @@ public class SearchWord {
         this.keyword = keyword;
         this.searchCount = searchCount;
     }
-    
+
     public static SearchWord newWord(String keyword) {
         return SearchWord.builder().keyword(keyword).searchCount(1L).build();
     }

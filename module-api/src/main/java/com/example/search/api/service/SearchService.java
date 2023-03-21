@@ -4,7 +4,6 @@ import com.example.search.api.exception.BusinessException;
 import com.example.search.api.model.*;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

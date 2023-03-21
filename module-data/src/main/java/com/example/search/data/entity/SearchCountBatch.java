@@ -1,6 +1,6 @@
 package com.example.search.data.entity;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,5 +17,5 @@ public class SearchCountBatch {
 
     @CreationTimestamp
     @Column(name = "started_datetime")
-    private OffsetDateTime startedDatetime;
+    private LocalDateTime startedDatetime;
 }

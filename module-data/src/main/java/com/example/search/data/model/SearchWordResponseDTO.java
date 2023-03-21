@@ -12,6 +12,9 @@ public class SearchWordResponseDTO {
     private Long searchCount;
 
     public static SearchWordResponseDTO from(SearchWord searchWord) {
-        return SearchWordResponseDTO.builder().searchWord(searchWord.getKeyword()).searchCount(searchWord.getSearchCount()).build();
+        return SearchWordResponseDTO.builder()
+                .searchWord(searchWord.getKeyword())
+                .searchCount(searchWord.getSearchCount())
+                .build();
     }
 }

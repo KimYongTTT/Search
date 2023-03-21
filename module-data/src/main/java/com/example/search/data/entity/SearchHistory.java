@@ -1,6 +1,6 @@
 package com.example.search.data.entity;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,5 +21,5 @@ public class SearchHistory {
 
     @CreationTimestamp
     @Column(name = "created_datetime")
-    private OffsetDateTime createdDatetime;
+    private LocalDateTime createdDatetime;
 }
