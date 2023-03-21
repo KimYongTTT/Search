@@ -1,6 +1,9 @@
 spring:
   application:
     name: search-module-api
+  profiles:
+    include:
+      - data
 server:
   port: 4000
   servlet:
