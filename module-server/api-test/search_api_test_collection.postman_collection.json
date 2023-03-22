@@ -1,0 +1,742 @@
+{
+	"info": {
+		"_postman_id": "98b62530-4da5-485e-a08d-643018bde37e",
+		"name": "search_api_test_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13353900"
+	},
+	"item": [
+		{
+			"name": "Positive",
+			"item": [
+				{
+					"name": "1. [/search/blog] (query = 서울, sorting = null, pageNumber = null, pageSize = 1)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Assertion: isSuccess = true\", function () {",
+									"    pm.expect(jsonData.isSuccess).eql(true);",
+									"});",
+									"",
+									"pm.test(\"Assertion: statusCode = SUCCESS\", function () {",
+									"    pm.expect(jsonData.statusCode).eql(\"SUCCESS\");",
+									"});",
+									"",
+									"pm.test(\"Assertion: data is not empty\", function () {",
+									"    pm.expect(jsonData.data).to.be.not.empty;",
+									"});",
+									"",
+									"pm.test(\"Assertion: paging size = 10\", function () {",
+									"    pm.expect(jsonData.paging.pageSize).eql(10);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/search/blog?query=서울",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"search",
+								"blog"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "서울"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. [/search/blog] (query = 서울, sorting = RECENCY, pageNumber = 2, pageSize = 10)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Assertion: isSuccess = true\", function () {",
+									"    pm.expect(jsonData.isSuccess).eql(true);",
+									"});",
+									"",
+									"pm.test(\"Assertion: statusCode = SUCCESS\", function () {",
+									"    pm.expect(jsonData.statusCode).eql(\"SUCCESS\");",
+									"});",
+									"",
+									"pm.test(\"Assertion: data is not empty\", function () {",
+									"    pm.expect(jsonData.data).to.be.not.empty;",
+									"});",
+									"",
+									"pm.test(\"Assertion: page number = 2\", function () {",
+									"    pm.expect(jsonData.paging.pageNumber).eql(2);",
+									"});",
+									"",
+									"pm.test(\"Assertion: paging size = 1\", function () {",
+									"    pm.expect(jsonData.paging.pageSize).eql(10);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/search/blog?query=서울&pageNumber=2&pageSize=10&sort=RECENCY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"search",
+								"blog"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "서울"
+								},
+								{
+									"key": "pageNumber",
+									"value": "2"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sort",
+									"value": "RECENCY"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. [/search/blog] (query = 서울, sorting = ACCURACY, pageNumber = 2, pageSize = 10)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Assertion: isSuccess = true\", function () {",
+									"    pm.expect(jsonData.isSuccess).eql(true);",
+									"});",
+									"",
+									"pm.test(\"Assertion: statusCode = SUCCESS\", function () {",
+									"    pm.expect(jsonData.statusCode).eql(\"SUCCESS\");",
+									"});",
+									"",
+									"pm.test(\"Assertion: data is not empty\", function () {",
+									"    pm.expect(jsonData.data).to.be.not.empty;",
+									"});",
+									"",
+									"pm.test(\"Assertion: page number = 2\", function () {",
+									"    pm.expect(jsonData.paging.pageNumber).eql(2);",
+									"});",
+									"",
+									"pm.test(\"Assertion: paging size = 1\", function () {",
+									"    pm.expect(jsonData.paging.pageSize).eql(10);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/search/blog?query=서울&pageNumber=2&pageSize=10&sort=ACCURACY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"search",
+								"blog"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "서울"
+								},
+								{
+									"key": "pageNumber",
+									"value": "2"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sort",
+									"value": "ACCURACY"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. [/search/words] 검색어 상위 10개 조회 성공",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Assertion: isSuccess = true\", function () {",
+									"    pm.expect(jsonData.isSuccess).eql(true);",
+									"});",
+									"",
+									"pm.test(\"Assertion: statusCode = SUCCESS\", function () {",
+									"    pm.expect(jsonData.statusCode).eql(\"SUCCESS\");",
+									"});",
+									"",
+									"pm.test(\"Assertion: data is not empty\", function () {",
+									"    pm.expect(jsonData.data).to.be.not.empty;",
+									"});",
+									"",
+									"pm.test(\"Assertion: data length is 10\", function () {",
+									"   pm.expect(jsonData.data.length).to.eql(10); ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/search/words",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"search",
+								"words"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Negative",
+			"item": [
+				{
+					"name": "1. [/search/blog] (query = 서울, sorting = WRONGSORT, pageNumber = 2, pageSize = 10)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Assertion: isSuccess = false\", function () {",
+									"    pm.expect(jsonData.isSuccess).eql(false);",
+									"});",
+									"",
+									"pm.test(\"Assertion: statusCode = INVALID_PARAMETER\", function () {",
+									"    pm.expect(jsonData.statusCode).eql(\"INVALID_PARAMETER\");",
+									"});",
+									"",
+									"pm.test(\"Assertion: paging metadata is undefined\", function () {",
+									"    pm.expect(jsonData.paging).to.be.undefined;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/search/blog?query=서울&pageNumber=2&pageSize=10&sort=WRONGSORT",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"search",
+								"blog"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "서울"
+								},
+								{
+									"key": "pageNumber",
+									"value": "2"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sort",
+									"value": "WRONGSORT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. [/search/blog] (query = 서울, sorting = ACCURACY, pageNumber = -1, pageSize = 10) Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Assertion: isSuccess = false\", function () {",
+									"    pm.expect(jsonData.isSuccess).eql(false);",
+									"});",
+									"",
+									"pm.test(\"Assertion: statusCode = INVALID_PARAMETER\", function () {",
+									"    pm.expect(jsonData.statusCode).eql(\"INVALID_PARAMETER\");",
+									"});",
+									"",
+									"pm.test(\"Assertion: paging metadata is undefined\", function () {",
+									"    pm.expect(jsonData.paging).to.be.undefined;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/search/blog?query=서울&pageNumber=-1&pageSize=10&sort=ACCURACY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"search",
+								"blog"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "서울"
+								},
+								{
+									"key": "pageNumber",
+									"value": "-1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sort",
+									"value": "ACCURACY"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. [/search/blog] (query = 서울, sorting = ACCURACY, pageNumber = 1, pageSize = 100000) Copy 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Assertion: isSuccess = false\", function () {",
+									"    pm.expect(jsonData.isSuccess).eql(false);",
+									"});",
+									"",
+									"pm.test(\"Assertion: statusCode = INVALID_PARAMETER\", function () {",
+									"    pm.expect(jsonData.statusCode).eql(\"INVALID_PARAMETER\");",
+									"});",
+									"",
+									"pm.test(\"Assertion: paging metadata is undefined\", function () {",
+									"    pm.expect(jsonData.paging).to.be.undefined;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/search/blog?query=서울&pageNumber=1&pageSize=100000&sort=ACCURACY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"search",
+								"blog"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "서울"
+								},
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "100000"
+								},
+								{
+									"key": "sort",
+									"value": "ACCURACY"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. [/search/blog] (query = null, sorting = ACCURACY, pageNumber = 1, pageSize = 10)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Assertion: isSuccess = false\", function () {",
+									"    pm.expect(jsonData.isSuccess).eql(false);",
+									"});",
+									"",
+									"pm.test(\"Assertion: statusCode = INVALID_PARAMETER\", function () {",
+									"    pm.expect(jsonData.statusCode).eql(\"INVALID_PARAMETER\");",
+									"});",
+									"",
+									"pm.test(\"Assertion: paging metadata is undefined\", function () {",
+									"    pm.expect(jsonData.paging).to.be.undefined;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/search/blog?pageNumber=1&pageSize=10&sort=ACCURACY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"search",
+								"blog"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "서울",
+									"disabled": true
+								},
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sort",
+									"value": "ACCURACY"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. [/search/blog] (query = blank, sorting = ACCURACY, pageNumber = 1, pageSize = 10)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Assertion: isSuccess = false\", function () {",
+									"    pm.expect(jsonData.isSuccess).eql(false);",
+									"});",
+									"",
+									"pm.test(\"Assertion: statusCode = INVALID_PARAMETER\", function () {",
+									"    pm.expect(jsonData.statusCode).eql(\"INVALID_PARAMETER\");",
+									"});",
+									"",
+									"pm.test(\"Assertion: paging metadata is undefined\", function () {",
+									"    pm.expect(jsonData.paging).to.be.undefined;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/search/blog?query=    &pageNumber=1&pageSize=10&sort=ACCURACY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"search",
+								"blog"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "    "
+								},
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sort",
+									"value": "ACCURACY"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. [/search/blog] (query = !!!!!!!!, sorting = ACCURACY, pageNumber = 1, pageSize = 1)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Assertion: isSuccess = true\", function () {",
+									"    pm.expect(jsonData.isSuccess).eql(true);",
+									"});",
+									"",
+									"pm.test(\"Assertion: statusCode = EMPTY_RESULT\", function () {",
+									"    pm.expect(jsonData.statusCode).eql(\"EMPTY_RESULT\");",
+									"});",
+									"",
+									"pm.test(\"Assertion: paging metadata is undefined\", function () {",
+									"    pm.expect(jsonData.paging).to.be.undefined;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/search/blog?query=!!!!!!!&pageNumber=1&pageSize=1&sort=ACCURACY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"search",
+								"blog"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "!!!!!!!"
+								},
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								},
+								{
+									"key": "sort",
+									"value": "ACCURACY"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7. [/search/blog] (query = longlonglong, sorting = ACCURACY, pageNumber = 1, pageSize = 1) Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Assertion: isSuccess = false\", function () {",
+									"    pm.expect(jsonData.isSuccess).eql(false);",
+									"});",
+									"",
+									"pm.test(\"Assertion: statusCode = INVALID_PARAMETER\", function () {",
+									"    pm.expect(jsonData.statusCode).eql(\"INVALID_PARAMETER\");",
+									"});",
+									"",
+									"pm.test(\"Assertion: paging metadata is undefined\", function () {",
+									"    pm.expect(jsonData.paging).to.be.undefined;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/search/blog?query=longlonglonglonglongllonglonglonglonglonglonglonglonglonglonglonglonglonglnoglnoglonglong&pageNumber=1&pageSize=1&sort=ACCURACY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"search",
+								"blog"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "longlonglonglonglongllonglonglonglonglonglonglonglonglonglonglonglonglonglnoglnoglonglong"
+								},
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								},
+								{
+									"key": "sort",
+									"value": "ACCURACY"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

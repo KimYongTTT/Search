@@ -1,12 +1,12 @@
 package com.example.search.api.service;
 
+import com.example.search.api.constants.StatusCodeConstants;
 import com.example.search.api.exception.BusinessException;
 import com.example.search.api.model.*;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,7 +28,8 @@ public class SearchService {
         }
 
         if (searchResult == null) {
-            throw new BusinessException(HttpStatus.NO_CONTENT, "There are no search results");
+            throw new BusinessException(
+                    StatusCodeConstants.EMPTY_RESULT, "There are no search results");
         }
 
         return searchResult;

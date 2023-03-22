@@ -7,6 +7,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class BaseResponse<T> {
     private Boolean isSuccess;
-    private String message;
+    private String statusCode;
     private T data;
 }

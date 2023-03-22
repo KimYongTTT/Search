@@ -1,19 +1,14 @@
 package com.example.search.api.exception;
 
 import lombok.Getter;
-import org.springframework.http.HttpStatus;
 
 @Getter
 public class BusinessException extends RuntimeException {
 
-    private HttpStatus code;
+    private String statusCode;
 
-    public BusinessException(HttpStatus code, String message) {
+    public BusinessException(String statusCode, String message) {
         super(message);
-        this.code = code;
-    };
-
-    public HttpStatus getCode() {
-        return this.code;
+        this.statusCode = statusCode;
     }
 }

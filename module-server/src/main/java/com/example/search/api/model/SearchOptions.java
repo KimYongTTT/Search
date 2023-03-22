@@ -1,6 +1,6 @@
 package com.example.search.api.model;
 
-import com.example.search.api.constants.SearchConstants;
+import com.example.search.api.constants.SearchConstants.SortCondition;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -13,7 +13,7 @@ public class SearchOptions {
     @Size(min = 1, max = 30, message = "query parameter's length must be between 1 and 30")
     private String query;
 
-    private SearchConstants.SortCondition sort = SearchConstants.SortCondition.ACCURACY;
+    private SortCondition sort = SortCondition.ACCURACY;
 
     @Min(value = 1, message = "page number is less than min(1)")
     private int pageNumber = 1;
