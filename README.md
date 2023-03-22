@@ -23,7 +23,7 @@ batch
 1. 1분주기로 실행
 2. SEARCH_BATCH 테이블에서 이전 BATCH 시작시간 get, 현재 BATCH 시작시간 write
 3. 이전 BATCH 시작시간 < 검색이력 < 현재 BATCH 시작시간 인 이력들 count(*) ~ group by (검색어) - 이력테이블은 이력생성시간으로 INDEXING 되어있음.
-4. 해당 Count 별로 SEARCH_WORD count 칼럼 업데이트 
+4. SEARCH_WORD count 칼럼 업데이트 
 
 
 ### 1. Spring Boot App Run
