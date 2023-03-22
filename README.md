@@ -70,13 +70,8 @@ Negative
 
 API Spec - https://www.notion.so/Search-API-Docs-928b662c5c1a453b96be7050ed632fb9
 
-### 4. Jmeter 성능테스트 결과
-3000 Number of Threads(users) / 30초 / 동일한 검색조건 (키워드 - "서울") 아래와 같이 중간구간 기준 100 TPS 안정적으로 유지하는것 볼수 있었음
-검색 횟수도 유실되지 않고 기존보다 +3000 결과적인 동기화 된것 확인함 
-<img width="1087" alt="image" src="https://user-images.githubusercontent.com/39793010/226936451-1e885b8f-696d-41e3-8b15-1f205075a9b5.png">
 
-
-### 5. 사용 외부 Library
+### 4. 사용 외부 Library
 1. Spring Boot Cloud Open Feign - 카카오, 네이버 외부 API 연동 위함
 2. Spring Boot Cloud Slueth - Enhanced Loggin 위함
 3. Spring Boot Validation - Parameter Validation 위함
