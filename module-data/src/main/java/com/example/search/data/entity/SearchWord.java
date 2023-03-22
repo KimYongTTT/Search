@@ -14,7 +14,7 @@ public class SearchWord {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "keyword")
+    @Column(name = "keyword", unique = true)
     private String keyword;
 
     @Column(name = "search_count")
@@ -27,6 +27,6 @@ public class SearchWord {
     }
 
     public static SearchWord newWord(String keyword) {
-        return SearchWord.builder().keyword(keyword).searchCount(1L).build();
+        return SearchWord.builder().keyword(keyword).searchCount(0L).build();
     }
 }
