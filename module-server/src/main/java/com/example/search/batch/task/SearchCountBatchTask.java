@@ -21,7 +21,7 @@ public class SearchCountBatchTask {
     private final SearchHistoryService searchHistoryService;
     private final SearchWordService searchWordService;
 
-    @Scheduled(fixedRate = 10000)
+    @Scheduled(fixedRate = 60000)
     public void searchCountAggregateTask() {
         long batchStartTime = System.currentTimeMillis();
         log.info("searchCountAggregateTask batch start");
@@ -31,18 +31,16 @@ public class SearchCountBatchTask {
         final LocalDateTime newBatchStartedTime = newBatch.getStartedDatetime();
         final LocalDateTime prevBatchStartedTime =
                 prevBatch == null
-                        ? newBatchStartedTime.minus(10, ChronoUnit.SECONDS)
+                        ? newBatchStartedTime.minus(1, ChronoUnit.MINUTES)
                         : prevBatch.getStartedDatetime();
 
         List<SearchWordCountMap> searchHistories =
                 searchHistoryService.getHistoriesBetweenDate(
                         prevBatchStartedTime, newBatchStartedTime);
-        log.info(searchHistories.toString());
         Integer afftectedRows = searchWordService.updateWordSearchCounts(searchHistories);
 
-        log.info("{} words' search count is updated", afftectedRows);
-
         long batchEndTime = System.currentTimeMillis();
+        log.info("{} words' search count is updated", afftectedRows);
         log.info(
                 "searchCountAggregateTask batch end, elapsedTime : {} ",
                 batchEndTime - batchStartTime);

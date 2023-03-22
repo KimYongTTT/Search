@@ -12,7 +12,10 @@ public interface SearchHistoryRepository extends JpaRepository<SearchHistory, Lo
 
     @Query(
             value =
-                    "SELECT new com.example.search.data.model.SearchWordCountMap(sh.searchWord.id, COUNT (sh)) FROM SearchHistory sh WHERE sh.createdDatetime BETWEEN :from AND :to GROUP BY sh.searchWord")
+                    "SELECT new com.example.search.data.model.SearchWordCountMap(sh.searchWord.id, COUNT (sh)) "
+                            + "FROM SearchHistory sh "
+                            + "WHERE sh.createdDatetime BETWEEN :from AND :to "
+                            + "GROUP BY sh.searchWord")
     List<SearchWordCountMap> findAllByCreatedDatetimeBetween(
             @Param(value = "from") LocalDateTime from, @Param(value = "to") LocalDateTime to);
 }

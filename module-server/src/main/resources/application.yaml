@@ -17,7 +17,7 @@ server:
 logging:
   level:
     com: INFO
-    com.example.search.api.client: DEBUG
+#    com.example.search.api.client: DEBUG
 app:
   api:
     kakao:

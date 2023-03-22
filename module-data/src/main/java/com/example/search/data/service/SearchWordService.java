@@ -9,8 +9,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Slf4j
@@ -19,18 +19,22 @@ import org.springframework.transaction.annotation.Transactional;
 public class SearchWordService {
     private final SearchWordRepository searchWordRepository;
 
-    @Transactional(isolation = Isolation.READ_UNCOMMITTED)
     public SearchWord saveSearchWord(final String keyword) {
         Optional<SearchWord> searchWord = searchWordRepository.findByKeyword(keyword);
         if (searchWord.isPresent()) {
             return searchWord.get();
         } else {
             SearchWord newSearchWord = SearchWord.newWord(keyword);
-            return searchWordRepository.save(newSearchWord);
+            try {
+                newSearchWord = searchWordRepository.saveAndFlush(newSearchWord);
+            } catch (DataIntegrityViolationException ex) {
+                log.info(ex.getMessage());
+                log.info("SearchWord is already in DB, so skip...");
+            }
+            return newSearchWord;
         }
     }
 
-    @Transactional(readOnly = true)
     public List<SearchWordResponseDTO> getTop10SearchWords() {
         return searchWordRepository.findTop10ByOrderBySearchCountDesc().stream()
                 .map(SearchWordResponseDTO::from)
