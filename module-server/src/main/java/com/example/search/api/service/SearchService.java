@@ -50,7 +50,7 @@ public class SearchService {
                 PagingMetadata.builder()
                         .pageNumber(searchOptions.getPageNumber())
                         .pageSize(searchOptions.getPageSize())
-                        .totalElements(kakaoBlogSearchResponseDTO.getMeta().getTotalCount())
+                        .totalElements(kakaoBlogSearchResponseDTO.getMeta().getPageableCount())
                         .build();
 
         pagingVO.setData(data);
