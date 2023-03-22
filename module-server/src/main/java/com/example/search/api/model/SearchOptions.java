@@ -15,6 +15,7 @@ public class SearchOptions {
 
     private SortCondition sort = SortCondition.ACCURACY;
 
+    @Max(value = 50, message = "page number is more than max(50)")
     @Min(value = 1, message = "page number is less than min(1)")
     private int pageNumber = 1;
 
