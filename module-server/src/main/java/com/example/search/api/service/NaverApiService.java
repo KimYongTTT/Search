@@ -2,6 +2,7 @@ package com.example.search.api.service;
 
 import com.example.search.api.client.NaverClient;
 import com.example.search.api.constants.SearchConstants;
+import com.example.search.api.exception.BusinessException;
 import com.example.search.api.model.NaverBlogSearchResponseDTO;
 import com.example.search.api.model.SearchOptions;
 import feign.FeignException;

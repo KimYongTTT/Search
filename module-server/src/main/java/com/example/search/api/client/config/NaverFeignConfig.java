@@ -18,4 +18,5 @@ public class NaverFeignConfig {
             requestTemplate.header("X-Naver-Client-Secret", clientSecret);
         };
     }
+
 }
